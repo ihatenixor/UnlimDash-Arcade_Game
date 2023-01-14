@@ -21,17 +21,15 @@ clock = pygame.time.Clock()
 FPS = 60
 
 LIGHT_ORANGE = (252, 185, 76)
-LIGHT_YELLOW = (234, 247, 136)
 LIGHT_PINK = (244, 148, 255)
 RED = (201, 4, 17)
-ORANGE = (255,0,0)
 LIGHT_GREEN = (84, 240, 123)
 BLUE = (114, 159, 242)
 PURPLE = (178, 103, 240)
 WHITE = (255,255,255)
 BLACK = (0,0,0)
 
-clr_list = [PURPLE, LIGHT_ORANGE, LIGHT_GREEN, LIGHT_YELLOW, ORANGE, BLUE]
+clr_list = [PURPLE, LIGHT_ORANGE, LIGHT_GREEN, BLUE]
 clr_index = 0
 clr = clr_list[clr_index]
 title_font = "Fonts/BruceForeverRegular-X3jd2.ttf"
@@ -177,10 +175,8 @@ while running:
 		over_msg.update()
 		score_text.update(shadow=False)
 		best_text.update(shadow=False)
-
 		final_score_msg.update(score, shadow=False)
 		high_score_msg.update(highscore, shadow=False)
-
 		if home_btn.draw(win):
 			home_page = True
 			score_page = False
@@ -248,7 +244,7 @@ while running:
 				with open('records/records.csv', 'w+', encoding='utf-8') as f:
 					reader = csv.reader(f, delimiter=';')
 					writer = csv.writer(f, delimiter=';')
-					writer.writerow([score])
+					writer.writerow([highscore])
 					
 
 				p.reset()
